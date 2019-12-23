@@ -1,5 +1,5 @@
 module.exports = {
-  title: "前端小分队",
+  title: "前端",
   description: "顺丰华东小微",
   evergreen: true,
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
@@ -13,5 +13,8 @@ module.exports = {
     //   { text: "面试题库解析", link: "/interview_question/" },
     //   { text: "GitLab", link: "http://10.158.1.157/web" }
     // ]
-  }
+  },
+  plugins: [
+    require('./plugins/blog')
+  ]
 };

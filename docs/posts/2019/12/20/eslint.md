@@ -1,9 +1,10 @@
 ---
 title: vscode以及eslint配置及说明
-layout: Post
+tags: 规范|eslint|vscode
+sort: 1
 ---
 
-编辑器代码风格一致，是前端代码规范的一部分，以下主要针对 **VS Code** 做配置和说明，建议使用VS Code 作为前端主要IDE，目前插件市场对于VS Code的更新相对优先，也能更好的迎合新技术栈
+编辑器代码风格一致，是前端代码规范的一部分，以下主要针对 **VS Code** 做配置和说明，建议使用 **VS Code** 作为前端主要IDE，目前插件市场对于 **VS Code** 的更新相对优先，也能更好的迎合新技术栈
 
 ## 1.安装必要插件eslint、Vetur、Prettier
 

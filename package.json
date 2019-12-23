@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vue/eslint-config-airbnb": "^5.0.0",
     "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-vue": "^6.0.1",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",

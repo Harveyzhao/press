@@ -3,7 +3,7 @@
   "env": {
     "node": true
   },
-  "extends": ["plugin:vue/essential", "@vue/airbnb"],
+  "extends": "airbnb-base",
   "rules": {
     "import/extensions": [
       "error",
