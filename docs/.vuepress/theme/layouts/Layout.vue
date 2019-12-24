@@ -1,8 +1,12 @@
 <template>
   <div class="home">
     <header-layout></header-layout>
-    <div class="tags">
-      <div v-for="item in $allTags" :key="item.name" class="tag-item">{{ item.name }} ({{ item.count }})</div>
+    <div v-if="!filterTag" class="tags">
+      <div v-for="item in $allTags" :key="item.name" class="tag-item" @click="handleFilterTag(item)">{{ item.name }} ({{ item.count }})</div>
+    </div>
+    <div v-else class="tags">
+      <a class="back" @click="handleClearFilterTag"><a-icon type="rollback"/></a>
+      <div class="tag-item" style="cursor:default;">标签：{{ filterTag.name }}</div>
     </div>
     <div class="posts">
       <div v-for="year in Object.keys(posts)" class="post-year">
@@ -40,16 +44,35 @@ function createObjKeys(obj, dateSplit, index = 0) {
 
 export default {
   components: { HeaderLayout },
+  data() {
+    return {
+      currentPosts: [],
+      filterTag: null,
+    };
+  },
   computed: {
     posts() {
       const posts = {};
-      for (const item of this.$posts) {
+      for (const item of this.currentPosts) {
         const dateSplit = item.createdAt.split('-');
         const objKeys = [dateSplit[0], Months[+dateSplit[1] - 1]];
         createObjKeys(posts, objKeys);
         posts[objKeys[0]][objKeys[1]].push(item);
       }
       return posts;
+    },
+  },
+  created() {
+    this.currentPosts = this.$posts;
+  },
+  methods: {
+    handleFilterTag(item) {
+      this.filterTag = item;
+      this.currentPosts = item.pages;
+    },
+    handleClearFilterTag() {
+      this.filterTag = null;
+      this.currentPosts = this.$posts;
     },
   },
 };
@@ -71,6 +94,15 @@ export default {
     padding: 5px;
     font-size: 14px;
     cursor: pointer;
+  }
+  .back {
+    margin-right: 20px;
+    /deep/.anticon {
+      color: #d3d3d3;
+    }
+    a {
+      color: #d3d3d3;
+    }
   }
 }
 .posts {

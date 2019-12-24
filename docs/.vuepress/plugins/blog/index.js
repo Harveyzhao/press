@@ -12,9 +12,10 @@ module.exports = ({ postsDir = 'posts', postsLayout = 'Post' }, ctx) => {
         $page.tags = ($page.frontmatter.tags && $page.frontmatter.tags.split('|')) || [];
         $page.sort = $page.frontmatter.sort || 0;
         $page.category = $page.frontmatter.category;
+        $page.author = $page.frontmatter.author;
         $page.createdAt = $page.path.substr(7, 10).replace(/\//g, '-');
         const date = new Date($page.createdAt);
-        $page.monthDate = `${date.getMonth() + 1}.${date.getDate()}`
+        $page.monthDate = `${date.getMonth() + 1}.${date.getDate()}`;
         // $page.updatedAt = $page.lastUpdated ? format($page.lastUpdated, 'YYYY-MM-DD') : null
       }
     },
