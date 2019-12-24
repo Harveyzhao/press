@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/press/',
   title: '前端',
   description: '顺丰华东小微',
   evergreen: true,
