@@ -13,7 +13,7 @@
       <Content class="content" />
       <div class="post-anchor">
         <a-anchor :offsetTop="100">
-          <a-anchor-link class="anchor-item" v-for="item in $page.headers" :href="`#${item.slug}`" :title="item.title" />
+          <a-anchor-link class="anchor-item" v-for="(item, index) in $page.headers" :key="index" :href="`#${item.slug}`" :title="item.title" />
         </a-anchor>
       </div>
     </div>
@@ -21,16 +21,14 @@
 </template>
 
 <script>
-import HeaderLayout from '../components/Header';
+import HeaderLayout from '../components/Header.vue';
+
 export default {
   components: { HeaderLayout },
   filters: {
-    formatDate: function(value) {
+    formatDate(value) {
       return new Date(value).toLocaleString();
     },
-  },
-  created() {
-    console.log(this);
   },
 };
 </script>

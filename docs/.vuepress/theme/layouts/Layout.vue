@@ -9,11 +9,11 @@
       <div class="tag-item" style="cursor:default;">标签：{{ filterTag.name }}</div>
     </div>
     <div class="posts">
-      <div v-for="year in Object.keys(posts)" class="post-year">
+      <div v-for="year in Object.keys(posts)" :key="year" class="post-year">
         {{ year }}
-        <div v-for="month in Object.keys(posts[year])" class="post-month">
+        <div v-for="month in Object.keys(posts[year])" :key="year + month" class="post-month">
           {{ month }}
-          <li v-for="post in posts[year][month]" class="post-item">
+          <li v-for="post in posts[year][month]"  :key="post.key" class="post-item">
             <span>{{ post.monthDate }}</span>
             <router-link :to="post.regularPath"> {{ post.title }}</router-link>
           </li>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import HeaderLayout from '../components/Header';
+import HeaderLayout from '../components/Header.vue';
 
 const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -32,14 +32,14 @@ function createObjKeys(obj, dateSplit, index = 0) {
   if (dateSplit[index] && !obj[dateSplit[index]]) {
     if (index === dateSplit.length - 1) {
       obj[dateSplit[index]] = [];
-      return;
+      return null;
     }
     obj[dateSplit[index]] = {};
   }
   if (index + 1 === dateSplit.length) {
-    return;
+    return null;
   }
-  return createObjKeys(obj[dateSplit[index]], dateSplit, ++index);
+  return createObjKeys(obj[dateSplit[index]], dateSplit, index + 1);
 }
 
 export default {

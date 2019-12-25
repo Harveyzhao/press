@@ -1,7 +1,7 @@
 const path = require('path');
 // const format = require('date-fns/format')
 
-module.exports = ({ postsDir = 'posts', postsLayout = 'Post' }, ctx) => {
+module.exports = ({ postsDir = 'posts', postsLayout = 'Post' }) => {
   const ensureBothSlash = str => str.replace(/^\/?(.*)\/?$/, '/$1/');
   return {
     extendPageData($page) {
