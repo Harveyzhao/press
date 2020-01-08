@@ -53,7 +53,8 @@ export default ({ Vue }) => {
             pushToTags('其他', page);
           }
         }
-        return Array.from(new Set(tags));
+        const tagsArr = Array.from(new Set(tags)).sort((t1, t2) => t2.count - t1.count);
+        return tagsArr;
       },
     },
   });

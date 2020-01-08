@@ -9,11 +9,11 @@
       <div class="tag-item" style="cursor:default;">标签：{{ filterTag.name }}</div>
     </div>
     <div class="posts">
-      <div v-for="year in Object.keys(posts)" :key="year" class="post-year">
-        {{ year }}
-        <div v-for="month in Object.keys(posts[year])" :key="year + month" class="post-month">
-          {{ month }}
-          <li v-for="post in posts[year][month]"  :key="post.key" class="post-item">
+      <div v-for="year in posts" :key="year.label" class="post-year">
+        {{ year.label }}
+        <div v-for="month in year.monthPages" :key="year.label + month.label" class="post-month">
+          {{ month.label }}
+          <li v-for="post in month.pages"  :key="post.key" class="post-item">
             <span>{{ post.monthDate }}</span>
             <router-link :to="post.regularPath"> {{ post.title }}</router-link>
           </li>
@@ -28,20 +28,6 @@ import HeaderLayout from '../components/Header.vue';
 
 const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-function createObjKeys(obj, dateSplit, index = 0) {
-  if (dateSplit[index] && !obj[dateSplit[index]]) {
-    if (index === dateSplit.length - 1) {
-      obj[dateSplit[index]] = [];
-      return null;
-    }
-    obj[dateSplit[index]] = {};
-  }
-  if (index + 1 === dateSplit.length) {
-    return null;
-  }
-  return createObjKeys(obj[dateSplit[index]], dateSplit, index + 1);
-}
-
 export default {
   components: { HeaderLayout },
   data() {
@@ -52,12 +38,30 @@ export default {
   },
   computed: {
     posts() {
-      const posts = {};
+      const posts = [];
       for (const item of this.currentPosts) {
         const dateSplit = item.createdAt.split('-');
         const objKeys = [dateSplit[0], Months[+dateSplit[1] - 1]];
-        createObjKeys(posts, objKeys);
-        posts[objKeys[0]][objKeys[1]].push(item);
+        const findResult = posts.find(x => x.label === objKeys[0]);
+        if (findResult) {
+          const findMonthResult = findResult.monthPages.find(x => x.label === objKeys[1]);
+          if (findMonthResult) {
+            findMonthResult.pages.push(item);
+          } else {
+            findResult.monthPages.push({
+              label: objKeys[1],
+              pages: [item],
+            });
+          }
+        } else {
+          posts.push({
+            label: objKeys[0],
+            monthPages: [{
+              label: objKeys[1],
+              pages: [item],
+            }],
+          });
+        }
       }
       return posts;
     },
