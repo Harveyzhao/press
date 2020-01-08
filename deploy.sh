@@ -11,3 +11,4 @@ git commit -m 'deploy'
 
 # 推送到gh-pages分支
 git push -f git@github.com:Harveyzhao/press.git master:gh-pages
+cd ../../../
