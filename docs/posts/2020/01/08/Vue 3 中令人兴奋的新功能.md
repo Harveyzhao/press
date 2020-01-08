@@ -3,6 +3,9 @@ title: Vue 3 中令人兴奋的新功能
 tags: 学习
 author: zyh
 --- 
+
+> Vue 3 目前已经公布next版本，也有很多人已经尝鲜，写了一些demo用例，下文主要介绍了Vue 3 中的一些新功能
+
 ## 组件 API（Composition API）
 
 组件 API 是 Vue 的下一个主要版本中最常用的讨论和特色语法。这是一种全新的逻辑重用和代码组织方法。
