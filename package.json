@@ -8,26 +8,26 @@
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "lint": "eslint docs/.vuepress/config.js",
-    "deploy":"npm run build && cd docs/.vuepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/Harveyzhao/press.git master:gh-pages && cd ../../../"
+    "deploy": "npm run build && cd docs/.vuepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/Harveyzhao/press.git master:gh-pages && cd ../../../"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-vue": "^6.0.1",
-    "node-sass": "^4.13.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-html": "^6.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.0",
-    "vuepress": "^1.2.0"
+    "sass-loader": "^8.0.2",
+    "vuepress": "^1.4.1"
   },
   "dependencies": {
-    "ant-design-vue": "^1.4.10",
-    "gh-pages": "^2.1.1",
+    "ant-design-vue": "^1.5.3",
+    "gh-pages": "^2.2.0",
     "node-cmd": "^3.0.0",
-    "view-design": "^4.0.2"
+    "view-design": "^4.2.0"
   }
 }
