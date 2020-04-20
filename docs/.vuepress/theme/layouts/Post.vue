@@ -35,10 +35,11 @@ export default {
 
 <style lang="scss" scoped>
 .post-content {
-  width: 700px;
+  width: 900px;
   margin: 0 auto;
   padding: 40px 0;
   position: relative;
+  left: -200px;
   .post-title {
     font-size: 2.2rem;
     font-weight: bold;
@@ -57,10 +58,11 @@ export default {
     position: absolute;
     left: 50%;
     top: 140px;
-    margin-left: 350px;
+    margin-left: 450px;
     padding-left: 15px;
     line-height: 30px;
     padding: 10px 15px;
+    width: 400px;
     /deep/.ant-anchor-wrapper {
       background-color: #282c35;
       .anchor-item {
@@ -77,6 +79,9 @@ export default {
       }
       .ant-anchor-ink::before {
         background-color: #666;
+      }
+      .ant-anchor-link-title {
+        white-space: initial;
       }
     }
   }

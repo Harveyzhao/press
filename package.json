@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "gh-pages -d build",
     "lint": "eslint docs/.vuepress/config.js"
   },
   "author": "",
