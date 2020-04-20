@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Eslint standard搭建（基于cli3） | 前端</title>
+    <meta name="description" content="顺丰华东小微">
+    <link rel="icon" href="/press/favicon.ico">
+    
+    <link rel="preload" href="/press/assets/css/0.styles.9aafb69a.css" as="style"><link rel="preload" href="/press/assets/js/app.f58b331f.js" as="script"><link rel="preload" href="/press/assets/js/3.756bb29e.js" as="script"><link rel="preload" href="/press/assets/js/11.f8c0c803.js" as="script"><link rel="prefetch" href="/press/assets/js/10.bf65750d.js"><link rel="prefetch" href="/press/assets/js/12.567ed49f.js"><link rel="prefetch" href="/press/assets/js/13.466efbba.js"><link rel="prefetch" href="/press/assets/js/14.6b2f1720.js"><link rel="prefetch" href="/press/assets/js/15.887c48fe.js"><link rel="prefetch" href="/press/assets/js/16.5ec8906c.js"><link rel="prefetch" href="/press/assets/js/2.ac3a0cc0.js"><link rel="prefetch" href="/press/assets/js/4.c1b77ad3.js"><link rel="prefetch" href="/press/assets/js/5.7e08e063.js"><link rel="prefetch" href="/press/assets/js/6.f204de27.js"><link rel="prefetch" href="/press/assets/js/7.b9de6935.js"><link rel="prefetch" href="/press/assets/js/8.dee108da.js"><link rel="prefetch" href="/press/assets/js/9.7d3948e5.js">
+    <link rel="stylesheet" href="/press/assets/css/0.styles.9aafb69a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="post" data-v-a345f0ac><div class="header" data-v-5f7cbcfe data-v-a345f0ac><div class="header-title" data-v-5f7cbcfe>前端</div> <div class="nav" data-v-5f7cbcfe><a href="/press/" class="router-link-active" data-v-5f7cbcfe>文章</a></div></div> <div class="post-content" data-v-a345f0ac><div class="post-title" data-v-a345f0ac>
+      Eslint standard搭建（基于cli3）
+      <p class="date" data-v-a345f0ac><span data-v-a345f0ac>作者: zyh</span> <span data-v-a345f0ac>发布日期：2020-04-03</span> <span data-v-a345f0ac>更新于 2020-4-3 1:49:52 PM</span></p></div> <div class="content content__default" data-v-a345f0ac><h2 id="初始化-eslint"><a href="#初始化-eslint" class="header-anchor">#</a> 初始化 eslint</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>npx eslint --init
+
+? How would you like to use ESLint? To check syntax, <span class="token function">find</span> problems, and enforce code style
+? What <span class="token builtin class-name">type</span> of modules does your project use? JavaScript modules <span class="token punctuation">(</span>import/export<span class="token punctuation">)</span>
+? Which framework does your project use? Vue.js
+? Does your project use TypeScript? No
+? Where does your code run? Browser
+? How would you like to define a style <span class="token keyword">for</span> your project? Use a popular style guide
+? Which style guide <span class="token keyword">do</span> you want to follow? Standard: https://github.com/standard/standard
+? What <span class="token function">format</span> <span class="token keyword">do</span> you want your config <span class="token function">file</span> to be in? JavaScript
+</code></pre></div><h2 id="额外安装"><a href="#额外安装" class="header-anchor">#</a> 额外安装</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> babel-eslint @vue/cli-plugin-eslint @vue/eslint-config-standard -D
+</code></pre></div><h2 id="配置文件"><a href="#配置文件" class="header-anchor">#</a> 配置文件</h2> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    node<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'plugin:vue/essential'</span><span class="token punctuation">,</span> <span class="token string">'@vue/standard'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  parserOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    parser<span class="token punctuation">:</span> <span class="token string">'babel-eslint'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  globals<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    uni<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    wx<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    getApp<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    getCurrentPages<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 统一缩进2个空格</span>
+    indent<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> SwitchCase<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// 强制for循环按照正确的方向前进</span>
+    <span class="token string">'for-direction'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// switch语句必须有default分支</span>
+    <span class="token string">'default-case'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 不允许使用空函数</span>
+    <span class="token string">'no-empty-function'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止在没有类型检查的情况下与null比较</span>
+    <span class="token string">'no-eq-null'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止在变量定义之前使用他</span>
+    <span class="token string">'no-use-before-define'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 变量的命名一律使用驼峰命名</span>
+    camelcase<span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// switch 的冒号之后有空格</span>
+    <span class="token string">'switch-colon-spacing'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> after<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> before<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// 箭头函数的箭头前后都有空格</span>
+    <span class="token string">'arrow-spacing'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 要求非空文件末尾存在一行空行</span>
+    <span class="token string">'eol-last'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 回调函数中必须有容错处理</span>
+    <span class="token string">'handle-callback-err'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止行尾空格</span>
+    <span class="token string">'no-trailing-spaces'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止出现多行空行</span>
+    <span class="token string">'no-multiple-empty-lines'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止在单行内非缩进情况出现多个空格</span>
+    <span class="token string">'no-multi-spaces'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 使用'==='来代替'=='</span>
+    eqeqeq<span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 遵循大括号约定</span>
+    curly<span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止与自身比较 , if (x===x){}</span>
+    <span class="token string">'no-self-compare'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止重复导入</span>
+    <span class="token string">'no-duplicate-imports'</span><span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 函数名后不需要空格</span>
+    <span class="token string">'space-before-function-paren'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> anonymous<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span> named<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span> asyncArrow<span class="token punctuation">:</span> <span class="token string">'never'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// 禁止在生产环境出现alert</span>
+    <span class="token string">'no-alert'</span><span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'production'</span> <span class="token operator">?</span> <span class="token string">'error'</span> <span class="token punctuation">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+    <span class="token string">'no-console'</span><span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'production'</span> <span class="token operator">?</span> <span class="token string">'error'</span> <span class="token punctuation">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+    <span class="token string">'no-debugger'</span><span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'production'</span> <span class="token operator">?</span> <span class="token string">'error'</span> <span class="token punctuation">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  overrides<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      files<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'**/__tests__/*.{j,t}s?(x)'</span><span class="token punctuation">,</span> <span class="token string">'**/tests/unit/**/*.spec.{j,t}s?(x)'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        jest<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div class="post-anchor" data-v-a345f0ac><div data-v-a345f0ac><div><div class="ant-anchor-wrapper" style="max-height:calc(100vh - 100px);"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#初始化-eslint" title="初始化 eslint" class="ant-anchor-link-title">初始化 eslint</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#额外安装" title="额外安装" class="ant-anchor-link-title">额外安装</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#配置文件" title="配置文件" class="ant-anchor-link-title">配置文件</a></div></div></div></div></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/press/assets/js/app.f58b331f.js" defer></script><script src="/press/assets/js/3.756bb29e.js" defer></script><script src="/press/assets/js/11.f8c0c803.js" defer></script>
+  </body>
+</html>

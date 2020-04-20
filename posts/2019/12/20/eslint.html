@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vscode以及eslint配置及说明 | 前端</title>
+    <meta name="description" content="顺丰华东小微">
+    <link rel="icon" href="/press/favicon.ico">
+    
+    <link rel="preload" href="/press/assets/css/0.styles.9aafb69a.css" as="style"><link rel="preload" href="/press/assets/js/app.f58b331f.js" as="script"><link rel="preload" href="/press/assets/js/3.756bb29e.js" as="script"><link rel="preload" href="/press/assets/js/6.f204de27.js" as="script"><link rel="prefetch" href="/press/assets/js/10.bf65750d.js"><link rel="prefetch" href="/press/assets/js/11.f8c0c803.js"><link rel="prefetch" href="/press/assets/js/12.567ed49f.js"><link rel="prefetch" href="/press/assets/js/13.466efbba.js"><link rel="prefetch" href="/press/assets/js/14.6b2f1720.js"><link rel="prefetch" href="/press/assets/js/15.887c48fe.js"><link rel="prefetch" href="/press/assets/js/16.5ec8906c.js"><link rel="prefetch" href="/press/assets/js/2.ac3a0cc0.js"><link rel="prefetch" href="/press/assets/js/4.c1b77ad3.js"><link rel="prefetch" href="/press/assets/js/5.7e08e063.js"><link rel="prefetch" href="/press/assets/js/7.b9de6935.js"><link rel="prefetch" href="/press/assets/js/8.dee108da.js"><link rel="prefetch" href="/press/assets/js/9.7d3948e5.js">
+    <link rel="stylesheet" href="/press/assets/css/0.styles.9aafb69a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="post" data-v-a345f0ac><div class="header" data-v-5f7cbcfe data-v-a345f0ac><div class="header-title" data-v-5f7cbcfe>前端</div> <div class="nav" data-v-5f7cbcfe><a href="/press/" class="router-link-active" data-v-5f7cbcfe>文章</a></div></div> <div class="post-content" data-v-a345f0ac><div class="post-title" data-v-a345f0ac>
+      vscode以及eslint配置及说明
+      <p class="date" data-v-a345f0ac><span data-v-a345f0ac>作者: zyh</span> <span data-v-a345f0ac>发布日期：2019-12-20</span> <span data-v-a345f0ac>更新于 2019-12-24 2:28:18 PM</span></p></div> <div class="content content__default" data-v-a345f0ac><p>编辑器代码风格一致，是前端代码规范的一部分，以下主要针对 <strong>VS Code</strong> 做配置和说明，建议使用 <strong>VS Code</strong> 作为前端主要 IDE，目前插件市场对于 <strong>VS Code</strong> 的更新相对优先，也能更好的迎合新技术栈</p> <h2 id="_1-安装插件"><a href="#_1-安装插件" class="header-anchor">#</a> 1.安装插件</h2> <p>首先，安装必要插件 eslint、Vetur、Prettier</p> <p>其他插件推荐：</p> <ul><li>GitLens（文件对比，历史记录更能强大）</li> <li>vscode-icons (文件类型 icon，层级更清晰)</li> <li>One Dark Pro （主题，代码颜色区分，但这个还是看个人喜好，也有其他好看的主题）</li> <li>Vue VScode Snippets （vue 代码片段，熟悉后能增加效率）</li> <li>后面如果有好用的插件可以在这里补充。。。</li></ul> <h2 id="_2-vscode-配置文件"><a href="#_2-vscode-配置文件" class="header-anchor">#</a> 2.vscode 配置文件</h2> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;files.associations&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;*.vue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;*.js&quot;</span><span class="token operator">:</span> <span class="token string">&quot;javascript&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;www&quot;</span><span class="token operator">:</span> <span class="token string">&quot;javascript&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;*.wxml&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wxml&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;emmet.triggerExpansionOnTab&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;emmet.includeLanguages&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;vue-html&quot;</span><span class="token operator">:</span> <span class="token string">&quot;html&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Vue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;html&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;eslint.validate&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;javascript&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;javascriptreact&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;html&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;typescript&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;typescriptreact&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;workbench.colorTheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;One Dark Pro&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;workbench.iconTheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vscode-icons&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;window.zoomLevel&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;git.autofetch&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;git.ignoreMissingGitWarning&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;git.confirmSync&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;git.enableSmartCommit&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;explorer.confirmDelete&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;explorer.confirmDragAndDrop&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;files.exclude&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;**/.git&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;**/.svn&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;**/.hg&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;**/CVS&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;**/.DS_Store&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;javascript.format.enable&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;javascript.format.insertSpaceAfterConstructor&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;editor.codeActionsOnSave&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;source.fixAll.eslint&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;editor.defaultFormatter&quot;</span><span class="token operator">:</span> <span class="token string">&quot;esbenp.prettier-vscode&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;editor.tabSize&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.css&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.html&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.js&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.less&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.postcss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.scss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.stylus&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vetur.format.defaultFormatter.ts&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_3-eslint-prettier-配置"><a href="#_3-eslint-prettier-配置" class="header-anchor">#</a> 3.eslint+prettier 配置</h2> <ul><li>安装插件 npm install -D prettier （eslint 的依赖一般可以在 vuecli 脚手架中生成，无需手动安装，选择 airbnb 规则，版本 2 和 3 有不同，但不影响使用，cli3 生成依赖主要包括：</li></ul> <p>@vue/cli-plugin-eslint、@vue/eslint-config-airbnb、babel-eslint、eslint、eslint-plugin-vue</p> <p>）</p> <ul><li><p>eslint 配置文件【.eslintrc】主要是 airbnb 的默认配置+个人配置，后期如过相对严格的限制无法通过，可以使用/_ eslint-disable _/ 或 // eslint-disable-line，前者针对注释下方的代码，后者针对”行“，也能配合 eslint-enable 做局部处理</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;root&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;node&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;plugin:vue/essential&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;@vue/airbnb&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;rules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;import/extensions&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;always&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;js&quot;</span><span class="token operator">:</span> <span class="token string">&quot;never&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;vue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;never&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-param-reassign&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token property">&quot;props&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;max-len&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;vue/no-parsing-error&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;x-invalid-end-tag&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-underscore-dangle&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-restricted-syntax&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;import/no-dynamic-require&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;global-require&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;prefer-destructuring&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-continue&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;linebreak-style&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-template-curly-in-string&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-useless-escape&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;vue/html-self-closing&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;vue/no-use-v-if-with-v-for&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;no-return-assign&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;arrow-parens&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;as-needed&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;parserOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;parser&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel-eslint&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <ul><li><p>prettier 配置文件【.prettierrc】</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;singleQuote&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;trailingComma&quot;</span><span class="token operator">:</span> <span class="token string">&quot;all&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;printWidth&quot;</span><span class="token operator">:</span> <span class="token number">180</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="_4-总结"><a href="#_4-总结" class="header-anchor">#</a> 4.总结</h2> <p>以上配置完成后可在代码中使用快捷键格式化代码，或者 ctrl+s 保存自动格式化，前者通过 prettier，后者检查 eslint 规范且格式化</p></div> <div class="post-anchor" data-v-a345f0ac><div data-v-a345f0ac><div><div class="ant-anchor-wrapper" style="max-height:calc(100vh - 100px);"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_1-安装插件" title="1.安装插件" class="ant-anchor-link-title">1.安装插件</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_2-vscode-配置文件" title="2.vscode 配置文件" class="ant-anchor-link-title">2.vscode 配置文件</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_3-eslint-prettier-配置" title="3.eslint+prettier 配置" class="ant-anchor-link-title">3.eslint+prettier 配置</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_4-总结" title="4.总结" class="ant-anchor-link-title">4.总结</a></div></div></div></div></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/press/assets/js/app.f58b331f.js" defer></script><script src="/press/assets/js/3.756bb29e.js" defer></script><script src="/press/assets/js/6.f204de27.js" defer></script>
+  </body>
+</html>

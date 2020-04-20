@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文档发布说明 | 前端</title>
+    <meta name="description" content="顺丰华东小微">
+    <link rel="icon" href="/press/favicon.ico">
+    
+    <link rel="preload" href="/press/assets/css/0.styles.9aafb69a.css" as="style"><link rel="preload" href="/press/assets/js/app.f58b331f.js" as="script"><link rel="preload" href="/press/assets/js/3.756bb29e.js" as="script"><link rel="preload" href="/press/assets/js/8.dee108da.js" as="script"><link rel="prefetch" href="/press/assets/js/10.bf65750d.js"><link rel="prefetch" href="/press/assets/js/11.f8c0c803.js"><link rel="prefetch" href="/press/assets/js/12.567ed49f.js"><link rel="prefetch" href="/press/assets/js/13.466efbba.js"><link rel="prefetch" href="/press/assets/js/14.6b2f1720.js"><link rel="prefetch" href="/press/assets/js/15.887c48fe.js"><link rel="prefetch" href="/press/assets/js/16.5ec8906c.js"><link rel="prefetch" href="/press/assets/js/2.ac3a0cc0.js"><link rel="prefetch" href="/press/assets/js/4.c1b77ad3.js"><link rel="prefetch" href="/press/assets/js/5.7e08e063.js"><link rel="prefetch" href="/press/assets/js/6.f204de27.js"><link rel="prefetch" href="/press/assets/js/7.b9de6935.js"><link rel="prefetch" href="/press/assets/js/9.7d3948e5.js">
+    <link rel="stylesheet" href="/press/assets/css/0.styles.9aafb69a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="post" data-v-a345f0ac><div class="header" data-v-5f7cbcfe data-v-a345f0ac><div class="header-title" data-v-5f7cbcfe>前端</div> <div class="nav" data-v-5f7cbcfe><a href="/press/" class="router-link-active" data-v-5f7cbcfe>文章</a></div></div> <div class="post-content" data-v-a345f0ac><div class="post-title" data-v-a345f0ac>
+      文档发布说明
+      <p class="date" data-v-a345f0ac><span data-v-a345f0ac>作者: zyh</span> <span data-v-a345f0ac>发布日期：2019-12-24</span> <span data-v-a345f0ac>更新于 2019-12-24 3:54:43 PM</span></p></div> <div class="content content__default" data-v-a345f0ac><h2 id="_1-项目地址"><a href="#_1-项目地址" class="header-anchor">#</a> 1.项目地址</h2> <p>Github：https://github.com/Harveyzhao/press</p> <h2 id="_2-目录介绍"><a href="#_2-目录介绍" class="header-anchor">#</a> 2.目录介绍</h2> <div class="language- extra-class"><pre class="language-text"><code>.
+
+├── docs
+│  ├── .vuepress
+│  │  ├── plugins (插件，一般在编译前完成)
+│  │  ├── theme
+│  │  │  ├── components (主题组件库)
+│  │  │  └── layouts (布局)
+│  │  │  │  ├── Layout (首页布局)
+│  │  │  │  └── Post (文章页布局)
+│  │  ├── public (资源文件夹)
+│  │  ├── styles
+│  │  │  └── index.styl (全局样式)
+│  │  └── config.js (配置)
+│  │ 
+│  ├── README.md
+│  └──  posts (文档存储目录，文件夹内命名空间按yyyy/mm/dd/xxx.md形式命名)
+│ 
+└── package.json
+
+
+</code></pre></div><h2 id="_3-文章编写"><a href="#_3-文章编写" class="header-anchor">#</a> 3.文章编写</h2> <p>通过 ‘---’ 作为开头和结尾，表示该文档的独立配置</p> <p>可选项有：</p> <ul><li>​	title：文章标题</li> <li>​	tags： 多个tag通过 ‘|’ 分割</li> <li>​	author： 作者</li> <li>​	sort：发布日期按文件夹命名获取，但无时分秒，所以同一天发布的文章增加sort字段确定排序</li></ul> <p>后续选项待更新，比如置顶，分类，相关文章等等</p> <p>其余可使用md格式编辑文档，可内嵌vue代码，具体参考官方文档</p> <h2 id="_4-文章发布"><a href="#_4-文章发布" class="header-anchor">#</a> 4.文章发布</h2> <p>由于按文件形式编写，发布需要提交代码，目前代码存放在github中，相关shell命令如下</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 生成静态文件</span>
+<span class="token function">npm</span> run build
+
+<span class="token comment"># 进入生成的文件夹</span>
+<span class="token builtin class-name">cd</span> docs/.vuepress/dist
+
+<span class="token function">git</span> init
+<span class="token function">git</span> <span class="token function">add</span> -A
+<span class="token function">git</span> commit -m <span class="token string">'deploy'</span>
+
+<span class="token function">git</span> push -f git@github.com:Harveyzhao/press.git master:gh-pages
+</code></pre></div><p>windows系统直接全选后复制到控制台即可</p></div> <div class="post-anchor" data-v-a345f0ac><div data-v-a345f0ac><div><div class="ant-anchor-wrapper" style="max-height:calc(100vh - 100px);"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_1-项目地址" title="1.项目地址" class="ant-anchor-link-title">1.项目地址</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_2-目录介绍" title="2.目录介绍" class="ant-anchor-link-title">2.目录介绍</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_3-文章编写" title="3.文章编写" class="ant-anchor-link-title">3.文章编写</a></div><div class="anchor-item ant-anchor-link" data-v-a345f0ac><a href="#_4-文章发布" title="4.文章发布" class="ant-anchor-link-title">4.文章发布</a></div></div></div></div></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/press/assets/js/app.f58b331f.js" defer></script><script src="/press/assets/js/3.756bb29e.js" defer></script><script src="/press/assets/js/8.dee108da.js" defer></script>
+  </body>
+</html>
